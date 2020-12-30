@@ -2,7 +2,7 @@
 
 use CQ\DB\Seeder;
 
-class ExampleSeeder extends Seeder
+class StoresSeeder extends Seeder
 {
     /**
      * Run Method.
@@ -14,18 +14,20 @@ class ExampleSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Seeder::faker();
+        $faker = self::faker();
         $data = [];
 
         for ($i = 0; $i < 5; ++$i) {
             $data[] = [
                 'id' => $faker->uuid,
-                'string' => $faker->sentence,
+                'user_id' => $faker->uuid,
+                'data' => $faker->sha256,
+                'public_key' => $faker->sha256,
                 'updated_at' => date('Y-m-d H:i:s'),
                 'created_at' => date('Y-m-d H:i:s'),
             ];
         }
 
-        $this->table('example')->insert($data)->saveData();
+        $this->table('stores')->insert($data)->saveData();
     }
 }

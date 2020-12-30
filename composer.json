@@ -1,8 +1,8 @@
 {
-    "name": "cubequence/cubequence",
-    "description": "The CubeQuence Framework",
+    "name": "luca-castelnuovo/secrets",
+    "description": "Self-Hosted secret store",
     "keywords": [
-        "framework",
+        "secrets",
         "cubequence"
     ],
     "license": "MIT",

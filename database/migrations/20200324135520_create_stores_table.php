@@ -2,7 +2,7 @@
 
 use CQ\DB\Migration;
 
-class CreateExampleTable extends Migration
+class CreateStoresTable extends Migration
 {
     /**
      * Change Method.
@@ -31,9 +31,12 @@ class CreateExampleTable extends Migration
      */
     public function change()
     {
-        $example = $this->table('example', ['id' => false, 'primary_key' => 'id']);
-        $example->addColumn('id', 'uuid')
-            ->addColumn('string', 'string', ['limit' => 2048, 'null' => false])
+        $stores = $this->table('stores', ['id' => false, 'primary_key' => 'id']);
+        $stores->addColumn('id', 'uuid')
+            ->addColumn('user_id', 'uuid')
+            ->addColumn('name', 'string', ['limit' => 128])
+            ->addColumn('data', 'text')
+            ->addColumn('public_key', 'text')
             ->addColumn('updated_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
             ->addColumn('created_at', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
             ->create()
