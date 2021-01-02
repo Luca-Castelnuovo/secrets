@@ -46,10 +46,10 @@ class SecretsController extends Controller
     {
         try {
             SecretsValidator::createStore($request->data);
-        } catch (\Exception $e) {
+        } catch (\Throwable $th) {
             return $this->respondJson(
                 'Provided data was malformed',
-                json_decode($e->getMessage()),
+                json_decode($th->getMessage()),
                 422
             );
         }
@@ -94,10 +94,10 @@ class SecretsController extends Controller
     {
         try {
             SecretsValidator::getStore($request->data);
-        } catch (\Exception $e) {
+        } catch (\Throwable $th) {
             return $this->respondJson(
                 'Provided data was malformed',
-                json_decode($e->getMessage()),
+                json_decode($th->getMessage()),
                 422
             );
         }
@@ -146,10 +146,10 @@ class SecretsController extends Controller
     {
         try {
             SecretsValidator::updateStore($request->data);
-        } catch (\Exception $e) {
+        } catch (\Throwable $th) {
             return $this->respondJson(
                 'Provided data was malformed',
-                json_decode($e->getMessage()),
+                json_decode($th->getMessage()),
                 422
             );
         }
