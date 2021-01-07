@@ -7,6 +7,10 @@ use CQ\Routing\Route;
 Route::$router = $router->get();
 Middleware::$router = $router->get();
 
+Route::options('*', function () {
+    return 'CORS Allowed';
+});
+
 Route::get('/', 'SecretsController@listStores');
 Route::post('/', 'SecretsController@createStore', JSON::class);
 
